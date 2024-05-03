@@ -55,13 +55,13 @@
 #' @keywords internal
 .addErrorbarLayer <- function(plotObject, data, mapLabels, direction = "vertical") {
   validateEnumValue(direction, Directions)
-
   aestheticValues <- .getAestheticValuesFromConfiguration(
     n = 1,
     position = 0,
     plotConfigurationProperty = plotObject$plotConfiguration$errorbars,
     propertyNames = c("size", "linetype", "alpha")
   )
+
 
   plotObject <- switch(direction,
     "vertical" = plotObject +
@@ -108,10 +108,10 @@
           x = .data[[mapLabels$x]],
           # When ymin==y, numeric NA prevents cap to be plotted
           y = ifelse(
-            .data[[mapLabels$ymin]] == .data[[mapLabels$y]], 
-            as.numeric(NA), 
+            identical(.data[[mapLabels$ymin]], .data[[mapLabels$y]]),
+            as.numeric(NA),
             .data[[mapLabels$ymin]]
-            ),
+          ),
           color = .data[[mapLabels$color]],
           group = .data[[mapLabels$shape]]
         ),
@@ -130,8 +130,8 @@
           x = .data[[mapLabels$x]],
           # When ymax==y, numeric NA prevents cap to be plotted
           y = ifelse(
-            .data[[mapLabels$ymax]] == .data[[mapLabels$y]], 
-            as.numeric(NA), 
+            identical(.data[[mapLabels$ymax]], .data[[mapLabels$y]]),
+            as.numeric(NA),
             .data[[mapLabels$ymax]]
           ),
           color = .data[[mapLabels$color]],
@@ -186,8 +186,8 @@
         mapping = ggplot2::aes(
           # When xmin==x, numeric NA prevents cap to be plotted
           x = ifelse(
-            .data[[mapLabels$xmin]] == .data[[mapLabels$x]], 
-            as.numeric(NA), 
+            identical(.data[[mapLabels$xmin]], .data[[mapLabels$x]]),
+            as.numeric(NA),
             .data[[mapLabels$xmin]]
           ),
           y = .data[[mapLabels$y]],
@@ -208,8 +208,8 @@
         mapping = ggplot2::aes(
           # When xmax==x, numeric NA prevents cap to be plotted
           x = ifelse(
-            .data[[mapLabels$xmax]] == .data[[mapLabels$x]], 
-            as.numeric(NA), 
+            identical(.data[[mapLabels$xmax]], .data[[mapLabels$x]]),
+            as.numeric(NA),
             .data[[mapLabels$xmax]]
           ),
           y = .data[[mapLabels$y]],
