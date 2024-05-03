@@ -64,10 +64,10 @@ TimeProfilePlotConfiguration <- R6::R6Class(
 
       # On right axis, ggtext mirror angles. This is a workaround to get the
       # correct angle
-      if (private$.labels$y2label$font$angle %% 360 == 180){
+      if (private$.labels$y2label$font$angle %% 360 == 180) {
         private$.labels$y2label$font$angle <- 270
       }
-      if (private$.labels$y2label$font$angle %% 360 == 270){
+      if (private$.labels$y2label$font$angle %% 360 == 270) {
         private$.labels$y2label$font$angle <- 180
       }
 
