@@ -64,11 +64,11 @@
 #' @param values numeric values to be validated
 #' @param nullAllowed logical allowing `NULL` as input
 #' @keywords internal
-.validateIsStrictlyPositive <- function(values, nullAllowed = FALSE){
+.validateIsStrictlyPositive <- function(values, nullAllowed = FALSE) {
   validateIsNumeric(values, nullAllowed = nullAllowed)
   # all(NULL > 0) is true
   # validateIsNumeric already took care of values = null but not allowed situation
-  if(all(values > 0)){
+  if (all(values > 0)) {
     return(invisible())
   }
   stop(messages$errorValuesNotStrictlyPositive(values))
@@ -79,11 +79,11 @@
 #'
 #' @inheritParams isBetween
 #' @keywords internal
-.checkIsBetween <- function(x, left, right, strict = FALSE){
+.checkIsBetween <- function(x, left, right, strict = FALSE) {
   validateIsNumeric(x)
   validateIsNumeric(left)
   validateIsNumeric(right)
-  if(all(isBetween(x, left, right, strict))){
+  if (all(isBetween(x, left, right, strict))) {
     return(invisible())
   }
   warning(messages$warningValuesNotWitinRange(x, left, right, strict))
@@ -97,17 +97,19 @@
 #' @param availableAngles available angle for usage og `ggtext`
 #' @import ospsuite.utils
 #' @keywords internal
-.checkIsInAvailableAngles <- function(angle, availableAngles = c(0,90,180,270)){
+.checkIsInAvailableAngles <- function(angle, availableAngles = c(0, 90, 180, 270)) {
   validateIsNumeric(angle)
-  newAngle <- tryCatch({
-    validateIsIncluded(angle, availableAngles)
-    return(angle)
-    }, 
-    error = function(e){
+  newAngle <- tryCatch(
+    {
+      validateIsIncluded(angle, availableAngles)
+      return(angle)
+    },
+    error = function(e) {
       angleDifferences <- abs(angle - availableAngles)
       closestAngle <- head(availableAngles[which(angleDifferences == min(angleDifferences))], 1)
       warning(messages$warningAngleNotIncludedInAvailableAngles(angle, closestAngle))
-    return(closestAngle)
-  })
+      return(closestAngle)
+    }
+  )
   return(newAngle)
 }

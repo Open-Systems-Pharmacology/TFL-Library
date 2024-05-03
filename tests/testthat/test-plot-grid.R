@@ -76,14 +76,14 @@ test_that("Plot Grid can have very long texts and contain plots with very long t
   ls_plots <- list(
     # first plot
     plotBoxWhisker(mtcars,
-                   dataMapping = BoxWhiskerDataMapping$new(x = "am", y = "wt"),
-                   outliers = FALSE,
-                   plotConfiguration = BoxWhiskerPlotConfiguration$new(title = paste("Title: This is a", paste(rep("very", 40), collapse = " "), "long title"))
+      dataMapping = BoxWhiskerDataMapping$new(x = "am", y = "wt"),
+      outliers = FALSE,
+      plotConfiguration = BoxWhiskerPlotConfiguration$new(title = paste("Title: This is a", paste(rep("very", 40), collapse = " "), "long title"))
     ),
     # second plot
     plotBoxWhisker(ToothGrowth,
-                   dataMapping = BoxWhiskerDataMapping$new(x = "supp", y = "len"),
-                   plotConfiguration = BoxWhiskerPlotConfiguration$new(title = paste("Title: This is a", paste(rep("very", 40), collapse = " "), "long title"))
+      dataMapping = BoxWhiskerDataMapping$new(x = "supp", y = "len"),
+      plotConfiguration = BoxWhiskerPlotConfiguration$new(title = paste("Title: This is a", paste(rep("very", 40), collapse = " "), "long title"))
     )
   )
 
@@ -102,5 +102,6 @@ test_that("Plot Grid can have very long texts and contain plots with very long t
   plotGridObj$captionHorizontalJustification <- HorizontalJustification$right
 
   vdiffr::expect_doppelganger("long labels in plotgrid",
-                              fig = plotGrid(plotGridObj))
+    fig = plotGrid(plotGridObj)
+  )
 })

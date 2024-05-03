@@ -40,7 +40,7 @@ setDefaultExportParameters <- function(format = NULL, width = NULL, height = NUL
   validateIsNumeric(height, nullAllowed = TRUE)
   validateIsNumeric(dpi, nullAllowed = TRUE)
   validateIsString(name, nullAllowed = TRUE)
-  
+
   inputs <- c("format", "width", "height", "units", "dpi", "name")
   eval(.parseVariableToObject(objectName = "tlfEnv$defaultExportParameters", inputs, keepIfNull = TRUE))
   return(invisible())
@@ -54,7 +54,7 @@ setDefaultExportParameters <- function(format = NULL, width = NULL, height = NUL
 #' @export
 setDefaultAggregationFunctions <- function(y = NULL, ymin = NULL, ymax = NULL) {
   validateIsOfType(c(y, ymin, ymax), c("function", "character"), nullAllowed = TRUE)
-  
+
   if (isOfType(y, "character")) {
     y <- match.fun(y)
   }
@@ -64,7 +64,7 @@ setDefaultAggregationFunctions <- function(y = NULL, ymin = NULL, ymax = NULL) {
   if (isOfType(ymax, "character")) {
     ymax <- match.fun(ymax)
   }
-  
+
   tlfEnv$defaultAggregation$functions$y <- y %||% tlfEnv$defaultAggregation$functions$y
   tlfEnv$defaultAggregation$functions$ymin <- ymin %||% tlfEnv$defaultAggregation$functions$ymin
   tlfEnv$defaultAggregation$functions$ymax <- ymax %||% tlfEnv$defaultAggregation$functions$ymax
@@ -77,7 +77,7 @@ setDefaultAggregationFunctions <- function(y = NULL, ymin = NULL, ymax = NULL) {
 #' @export
 setDefaultAggregationLabels <- function(y = NULL, range = NULL) {
   validateIsString(c(y, range), nullAllowed = TRUE)
-  
+
   tlfEnv$defaultAggregation$labels$y <- y %||% tlfEnv$defaultAggregation$labels$y
   tlfEnv$defaultAggregation$labels$range <- range %||% tlfEnv$defaultAggregation$labels$range
 }
@@ -184,7 +184,7 @@ setDefaultMaxCharacterWidth <- function(maxCharacterWidth) {
 getTLFSettings <- function(settingName) {
   validateEnumValue(settingName, enum = tlfSettingsNames, nullAllowed = FALSE)
   obj <- tlfEnv[[settingName]]
-  
+
   return(list(
     Name = settingName,
     Class = class(obj),
@@ -210,7 +210,7 @@ saveTLFSettings <- function(file) {
 loadTLFSettings <- function(file) {
   validateIsFileExtension(file, "RData")
   load(file = file)
-  for(fieldNames in names(newEnv)){
+  for (fieldNames in names(newEnv)) {
     tlfEnv[[fieldNames]] <- newEnv[[fieldNames]]
   }
   return(invisible())

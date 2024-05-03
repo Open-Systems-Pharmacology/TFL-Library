@@ -90,7 +90,6 @@ test_that("Exporting plot configuration code leads to new plot configration with
 
 
 test_that("Plot exports are correctly rendered", {
-
   skip_on_ci() # skiped on CI because png() device cannot be initialized
 
   plot <- addScatter(

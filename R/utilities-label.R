@@ -88,7 +88,7 @@ asLabel <- function(text = "", font = NULL) {
 #' getLabelWithUnit("Label without unit")
 #'
 getLabelWithUnit <- function(label, unit = NULL) {
-  if (is.null(unit) ||is.na(unit) || unit == "") {
+  if (is.null(unit) || is.na(unit) || unit == "") {
     return(label)
   } else {
     return(paste0(label, " [", unit, "]"))
@@ -105,7 +105,7 @@ getLabelWithUnit <- function(label, unit = NULL) {
 #'
 #' @return a sanitized character string
 #'
-.sanitizeLabel <- function(text){
+.sanitizeLabel <- function(text) {
   forbiddenCharacters <- c("`")
   if (isOfType(text, "character", nullAllowed = FALSE)) {
     text <- stringr::str_remove_all(text, paste(forbiddenCharacters, sep = "|"))

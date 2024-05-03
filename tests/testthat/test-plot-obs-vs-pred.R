@@ -175,22 +175,20 @@ test_that("Long group names are correctly displayed", {
   obsVsPredData <- data.frame(
     x = sort(abs(rnorm(20, 2.5, 1))),
     y = sort(abs(rnorm(20, 2.5, 1))),
-    group = c(rep("A: ThisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath", 10),
-              rep("B: ThisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath", 10))
+    group = c(
+      rep("A: ThisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath", 10),
+      rep("B: ThisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath", 10)
+    )
   )
 
   vdiffr::expect_doppelganger("Very long group names",
-                              fig =
-                                plotObsVsPred(
-                                  data = obsVsPredData,
-                                  dataMapping = ObsVsPredDataMapping$new(
-                                    x = "x", y = "y",
-                                    group = "group"
-                                  )
-                                )
+    fig =
+      plotObsVsPred(
+        data = obsVsPredData,
+        dataMapping = ObsVsPredDataMapping$new(
+          x = "x", y = "y",
+          group = "group"
+        )
+      )
   )
-
 })
-
-
-
