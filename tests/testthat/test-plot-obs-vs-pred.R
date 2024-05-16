@@ -33,14 +33,9 @@ test_that("plotObservedVsSimulated works with error bars", {
   skip_if(getRversion() < "4.1")
   vdiffr::expect_doppelganger(
     title = "basic with error bars",
-    fig =
-      plotObsVsPred(
+    fig = plotObsVsPred(
         data = obsVsPredData,
-        dataMapping = ObsVsPredDataMapping$new(x = "x", y = "y", xmin = "xmin", xmax = "xmax"),
-        plotConfiguration = ObsVsPredPlotConfiguration$new(
-          xScale = Scaling$log, xAxisLimits = c(0.05, 50),
-          yScale = Scaling$log, yAxisLimits = c(0.05, 50),
-        )
+        dataMapping = ObsVsPredDataMapping$new(x = "x", y = "y", xmin = "xmin", xmax = "xmax")
       )
   )
 })
@@ -61,7 +56,7 @@ test_that("plotObservedVsSimulated works with data point with and without error 
     xmax = c(x[1], x[2:20] + abs(rnorm(19, 0.1, 0.05)))
   )
   vdiffr::expect_doppelganger(
-    title = "basic with error bars",
+    title = "basic with and without error bars",
     fig =
       plotObsVsPred(
         data = obsVsPredData,
