@@ -62,6 +62,14 @@
     propertyNames = c("size", "linetype", "alpha")
   )
 
+
+  # If xmin/xmax or ymin/ymax are equal to x or y,  do not plot error bar caps
+  data[[mapLabels$xmin]][data[[mapLabels$xmin]] == data[[mapLabels$x]] | is.na(data[[mapLabels$xmin]])] <- NA_real_
+  data[[mapLabels$xmax]][data[[mapLabels$xmax]] == data[[mapLabels$x]] | is.na(data[[mapLabels$xmax]])] <- NA_real_
+  data[[mapLabels$ymin]][data[[mapLabels$ymin]] == data[[mapLabels$y]] | is.na(data[[mapLabels$ymin]])] <- NA_real_
+  data[[mapLabels$ymax]][data[[mapLabels$ymax]] == data[[mapLabels$y]] | is.na(data[[mapLabels$ymax]])] <- NA_real_
+
+
   plotObject <- switch(direction,
     "vertical" = {
       plotObject <-
@@ -103,51 +111,45 @@
 
       # Add upper cap to error bar
       # If lower value is negative and plot is log scaled,
-      # Upper bar cap will still be plotted
-      if (!is.null(data[[mapLabels$ymin]]) && !identical(data[[mapLabels$ymin]], data[[mapLabels$y]])) {
-        plotObject <- plotObject +
-          ggplot2::geom_point(
-            data = data,
-            mapping = ggplot2::aes(
-              x = .data[[mapLabels$x]],
-              y = .data[[mapLabels$ymin]],
-              color = .data[[mapLabels$color]],
-              group = .data[[mapLabels$shape]]
-            ),
-            size = tlfEnv$defaultErrorbarCapSize,
-            shape = "_",
-            alpha = aestheticValues$alpha,
-            na.rm = TRUE,
-            show.legend = FALSE
-          )
-      }
+      # Upper bar cap will still be plotted{
+      plotObject <- plotObject +
+        ggplot2::geom_point(
+          data = data,
+          mapping = ggplot2::aes(
+            x = .data[[mapLabels$x]],
+            y = .data[[mapLabels$ymin]],
+            color = .data[[mapLabels$color]],
+            group = .data[[mapLabels$shape]]
+          ),
+          size = tlfEnv$defaultErrorbarCapSize,
+          shape = "_",
+          alpha = aestheticValues$alpha,
+          na.rm = TRUE,
+          show.legend = FALSE
+        )
 
 
       # Add lower cap to error bar
       # If lower value is negative and plot is log scaled,
       # Upper bar cap will still be plotted
-      if (!is.null(data[[mapLabels$ymax]]) && !identical(data[[mapLabels$ymax]], data[[mapLabels$y]])) {
-        plotObject <- plotObject +
-          ggplot2::geom_point(
-            data = data,
-            mapping = ggplot2::aes(
-              x = .data[[mapLabels$x]],
-              # When ymax==y, numeric NA prevents cap to be plotted
-              y = .data[[mapLabels$ymax]],
-              color = .data[[mapLabels$color]],
-              group = .data[[mapLabels$shape]]
-            ),
-            size = tlfEnv$defaultErrorbarCapSize,
-            shape = "_",
-            alpha = aestheticValues$alpha,
-            na.rm = TRUE,
-            show.legend = FALSE
-          )
-      }
+      plotObject <- plotObject +
+        ggplot2::geom_point(
+          data = data,
+          mapping = ggplot2::aes(
+            x = .data[[mapLabels$x]],
+            y = .data[[mapLabels$ymax]],
+            color = .data[[mapLabels$color]],
+            group = .data[[mapLabels$shape]]
+          ),
+          size = tlfEnv$defaultErrorbarCapSize,
+          shape = "_",
+          alpha = aestheticValues$alpha,
+          na.rm = TRUE,
+          show.legend = FALSE
+        )
       return(plotObject)
     },
     "horizontal" = {
-      # browser()
       plotObject <-
         plotObject +
         ggplot2::geom_linerange(
@@ -185,51 +187,47 @@
           show.legend = FALSE
         )
 
-      if (!is.null(data[[mapLabels$xmin]]) & !identical(data[[mapLabels$xmin]], data[[mapLabels$x]])) {
-        # Add lower cap to error bar
-        # If lower value is negative and plot is log scaled,
-        # Upper bar cap will still be plotted
-        plotObject <-
-          plotObject +
-          ggplot2::geom_point(
-            data = data,
-            mapping = ggplot2::aes(
-              # When xmin==x, numeric NA prevents cap to be plotted
-              x = .data[[mapLabels$xmin]],
-              y = .data[[mapLabels$y]],
-              color = .data[[mapLabels$color]],
-              group = .data[[mapLabels$shape]]
-            ),
-            size = tlfEnv$defaultErrorbarCapSize,
-            shape = "|",
-            alpha = aestheticValues$alpha,
-            na.rm = TRUE,
-            show.legend = FALSE
-          )
-      }
+      # Add lower cap to error bar
+      # If lower value is negative and plot is log scaled,
+      # Upper bar cap will still be plotted
+      plotObject <-
+        plotObject +
+        ggplot2::geom_point(
+          data = data,
+          mapping = ggplot2::aes(
+            x = .data[[mapLabels$xmin]],
+            y = .data[[mapLabels$y]],
+            color = .data[[mapLabels$color]],
+            group = .data[[mapLabels$shape]]
+          ),
+          size = tlfEnv$defaultErrorbarCapSize,
+          shape = "|",
+          alpha = aestheticValues$alpha,
+          na.rm = TRUE,
+          show.legend = FALSE
+        )
 
-      if (!is.null(data[[mapLabels$xmax]]) & !identical(data[[mapLabels$xmax]], data[[mapLabels$x]])) {
-        # Add upper cap to error bar
-        # If lower value is negative and plot is log scaled,
-        # Upper bar cap will still be plotted
-        plotObject <-
-          plotObject +
-          ggplot2::geom_point(
-            data = data,
-            mapping = ggplot2::aes(
-              # When xmax==x, numeric NA prevents cap to be plotted
-              x = .data[[ifelse(identical(data[[mapLabels$xmax]], data[[mapLabels$x]]), NA, mapLabels$xmax)]],
-              y = .data[[mapLabels$y]],
-              color = .data[[mapLabels$color]],
-              group = .data[[mapLabels$shape]]
-            ),
-            size = tlfEnv$defaultErrorbarCapSize,
-            shape = "|",
-            alpha = aestheticValues$alpha,
-            na.rm = TRUE,
-            show.legend = FALSE
-          )
-      }
+
+      # Add upper cap to error bar
+      # If lower value is negative and plot is log scaled,
+      # Upper bar cap will still be plotted
+      plotObject <-
+        plotObject +
+        ggplot2::geom_point(
+          data = data,
+          mapping = ggplot2::aes(
+            x = .data[[mapLabels$xmax]],
+            y = .data[[mapLabels$y]],
+            color = .data[[mapLabels$color]],
+            group = .data[[mapLabels$shape]]
+          ),
+          size = tlfEnv$defaultErrorbarCapSize,
+          shape = "|",
+          alpha = aestheticValues$alpha,
+          na.rm = TRUE,
+          show.legend = FALSE
+        )
+
       return(plotObject)
     }
   )

@@ -46,6 +46,31 @@ test_that("plotObservedVsSimulated works with error bars", {
 })
 
 
+test_that("plotObservedVsSimulated works with data point with and without error bars", {
+  skip_if_not_installed("vdiffr")
+  skip_if(getRversion() < "4.1")
+
+  x <- sort(abs(rnorm(20, 2.5, 1)))
+
+  obsVsPredData <- data.frame(
+    x = x,
+    y = sort(abs(rnorm(20, 2.5, 1))),
+    group = c(rep("A", 10), rep("B", 10)),
+    lloq = 1,
+    xmin = c(x[1], x[2:20] - abs(rnorm(19, 0.1, 0.03))),
+    xmax = c(x[1], x[2:20] + abs(rnorm(19, 0.1, 0.05)))
+  )
+  vdiffr::expect_doppelganger(
+    title = "basic with error bars",
+    fig =
+      plotObsVsPred(
+        data = obsVsPredData,
+        dataMapping = ObsVsPredDataMapping$new(x = "x", y = "y", xmin = "xmin", xmax = "xmax"),
+      )
+  )
+})
+
+
 
 test_that("foldDistance are plotted correctly", {
   skip_if_not_installed("vdiffr")
