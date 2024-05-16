@@ -1,10 +1,13 @@
 set.seed(42)
 
+x <- sort(abs(rnorm(20, 2.5, 1)))
 obsVsPredData <- data.frame(
-  x = sort(abs(rnorm(20, 2.5, 1))),
+  x = x,
   y = sort(abs(rnorm(20, 2.5, 1))),
   group = c(rep("A", 10), rep("B", 10)),
-  lloq = 1
+  lloq = 1,
+  xmin = x - abs(rnorm(20, 0.1, 0.03)),
+  xmax = x + abs(rnorm(20, 0.1, 0.05))
 )
 
 
@@ -23,6 +26,26 @@ test_that("plotObservedVsSimulated works ", {
     )
   )
 })
+
+
+test_that("plotObservedVsSimulated works with error bars", {
+  skip_if_not_installed("vdiffr")
+  skip_if(getRversion() < "4.1")
+  vdiffr::expect_doppelganger(
+    title = "basic with error bars",
+    fig =
+      plotObsVsPred(
+        data = obsVsPredData,
+        dataMapping = ObsVsPredDataMapping$new(x = "x", y = "y", xmin = "xmin", xmax = "xmax"),
+        plotConfiguration = ObsVsPredPlotConfiguration$new(
+          xScale = Scaling$log, xAxisLimits = c(0.05, 50),
+          yScale = Scaling$log, yAxisLimits = c(0.05, 50),
+        )
+      )
+  )
+})
+
+
 
 test_that("foldDistance are plotted correctly", {
   skip_if_not_installed("vdiffr")

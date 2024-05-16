@@ -123,7 +123,7 @@ simData <- data.frame(
 )
 
 
-test_that("Plot with NA as ymax and ymin works", {
+test_that("Time profile plot without errors bars works", {
   # Produce a Time profile plot with observed and simulated data
   obsData <- data.frame(x = c(1, 2, 1, 2, 3), y = c(5, 0.2, 2, 3, 4), ymin = NA_real_, ymax = NA_real_)
   simTime <- seq(1, 10, 0.1)
@@ -135,7 +135,30 @@ test_that("Plot with NA as ymax and ymin works", {
   )
 
   vdiffr::expect_doppelganger(
-    title = "empty ymax, ymin",
+    title = "timeprofile without error bars",
+    fig = plotTimeProfile(
+      data = simData,
+      observedData = obsData,
+      dataMapping = TimeProfileDataMapping$new(x = "x", y = "y", ymin = "ymin", ymax = "ymax"),
+      observedDataMapping = ObservedDataMapping$new(x = "x", y = "y", ymin = "ymin", ymax = "ymax")
+    )
+  )
+})
+
+test_that("Time profile plot with errors bars works", {
+  # Produce a Time profile plot with observed and simulated data
+  y <- c(5, 0.2, 2, 3, 4)
+  obsData <- data.frame(x = c(1, 2, 3, 4, 5), y = y, ymin = y - 0.5, ymax = y + 0.3)
+  simTime <- seq(1, 10, 0.1)
+  simData <- data.frame(
+    x = simTime,
+    y = 10 * exp(-simTime),
+    ymin = 8 * exp(-simTime),
+    ymax = 12 * exp(-simTime)
+  )
+
+  vdiffr::expect_doppelganger(
+    title = "timeprofile with error bars",
     fig = plotTimeProfile(
       data = simData,
       observedData = obsData,
@@ -237,4 +260,3 @@ test_that("plotTimeProfile works with LLOQ ", {
 # lloqPlot <- plotTimeProfile(data = testData, metaData = testMetaData, dataMapping = lloqDataMapping)
 #
 # lloqRangePlot <- plotTimeProfile(data = testData, metaData = testMetaData, dataMapping = lloqRangeDataMapping)
-
