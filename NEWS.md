@@ -4,12 +4,16 @@
 - The `xLimits` and `yLimits` argument in `PlotConfiguration` are renamed `xAxisLimits` and `yAxisLimits`.
   This will crop the axis limits but keep all the data to generate the plot (see `ggplot2::coord_cartesian`).
 - New `xValuesLimits` and `yValuesLimits` argument in `PlotConfiguration` to filter the **data** used to generate the plot. (see `ggplot2::scale_continuous_x`).
-- Groups names are now wraped on several lines if their number of characters is longer than 60.
-- Plots and plotGrids labels (titles, subtitles, caption and axis labels) are now automatically fitting plot's width and wraped on several lines if too long.
+- Groups names are now wrapped on several lines if their number of characters is longer than 60.
+- Plots and plotGrids labels (titles, subtitles, caption and axis labels) are now automatically fitting plot's width and wrapped on several lines if too long.
 - Plot labels texts are now sanitized from any unsupported characters.
 - Plot labels now have margin around them. This can be configured in  `Label`
 objects.
   
+ ## Minor improvements and bug fixes  
+ 
+ - Error bars cap sized are now drawn only if the error bars are displayed.
+ - Fix a bug where error bars caps were wrongly displayed (#1410)[https://github.com/Open-Systems-Pharmacology/OSPSuite-R/issues/1410]
 
 # tlf 1.5.0
 
