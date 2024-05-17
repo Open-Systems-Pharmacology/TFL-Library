@@ -70,10 +70,13 @@
 <ul><li>Lower Limit Of Quantification (LLOQ) can be added on time-profile plots and obs-vs-pred plots.</li>
 <li>The <code>xLimits</code> and <code>yLimits</code> argument in <code>PlotConfiguration</code> are renamed <code>xAxisLimits</code> and <code>yAxisLimits</code>. This will crop the axis limits but keep all the data to generate the plot (see <code><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">ggplot2::coord_cartesian</a></code>).</li>
 <li>New <code>xValuesLimits</code> and <code>yValuesLimits</code> argument in <code>PlotConfiguration</code> to filter the <strong>data</strong> used to generate the plot. (see <code>ggplot2::scale_continuous_x</code>).</li>
-<li>Groups names are now wraped on several lines if their number of characters is longer than 60.</li>
-<li>Plots and plotGrids labels (titles, subtitles, caption and axis labels) are now automatically fitting plot’s width and wraped on several lines if too long.</li>
+<li>Groups names are now wrapped on several lines if their number of characters is longer than 60.</li>
+<li>Plots and plotGrids labels (titles, subtitles, caption and axis labels) are now automatically fitting plot’s width and wrapped on several lines if too long.</li>
 <li>Plot labels texts are now sanitized from any unsupported characters.</li>
 <li>Plot labels now have margin around them. This can be configured in <code>Label</code> objects.</li>
+</ul><p>## Minor improvements and bug fixes</p>
+<ul><li>Error bars cap sized are now drawn only if the error bars are displayed.</li>
+<li>Fix a bug where error bars caps were wrongly displayed (<a href="https://github.com/open-systems-pharmacology/tlf-library/issues/1410" class="external-link">#1410</a>)[<a href="https://github.com/Open-Systems-Pharmacology/OSPSuite-R/issues/1410" class="external-link uri">https://github.com/Open-Systems-Pharmacology/OSPSuite-R/issues/1410</a>]</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.5.0" id="tlf-150">tlf 1.5.0<a class="anchor" aria-label="anchor" href="#tlf-150"></a></h2>

@@ -98,8 +98,9 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/open-systems-pharmacology/tlf-library" class="external-link">tlf</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Loading required package: tlf</span></span>
-<span><span class="co"># Place default legend position above the plot for prettier time profile plots</span></span>
+<span><span class="co">#&gt; Loading required package: tlf</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Place default legend position above the plot for prettier time profile plots</span></span>
 <span><span class="fu"><a href="../reference/setDefaultLegendPosition.html">setDefaultLegendPosition</a></span><span class="op">(</span><span class="va">LegendPositions</span><span class="op">$</span><span class="va">outsideTop</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="introduction">1. Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
@@ -153,7 +154,7 @@ confidence interval. The argument <code>y</code> is optional,
 provided.</p>
 <p>It can be noted that the argument <code>group</code> can be used to
 group the data by these aesthetics.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va"><a href="../reference/TimeProfileDataMapping.html">TimeProfileDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span><span class="va">x</span>,</span>
 <span>y <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -179,7 +180,7 @@ is a flag inspired from Nonmem for excluding data from the final time
 profile plot.</p>
 <p>It can be noted that the argument <code>group</code> can be used to
 group the data by these aesthetics.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va"><a href="../reference/ObservedDataMapping.html">ObservedDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span><span class="va">x</span>,</span>
 <span><span class="va">y</span>,</span>
@@ -207,7 +208,7 @@ data on the right axis.</p>
 </h2>
 <p>For the examples presented in the sequel, two simulated and two
 observed datasets are created below:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Simulation time</span></span>
 <span><span class="va">simTime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">24</span>, <span class="fl">0.1</span><span class="op">)</span></span>
 <span></span>
@@ -244,7 +245,7 @@ observed datasets are created below:</p>
 <span>  maxConcentration <span class="op">=</span> <span class="fl">12</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.08</span> <span class="op">*</span> <span class="va">simTime</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">simTime</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  caption <span class="op">=</span> <span class="st">"Simulated Data 2"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Observed data 1</span></span>
 <span><span class="va">obsData1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">6</span>, <span class="fl">12</span>, <span class="fl">24</span><span class="op">)</span>,</span>
@@ -269,7 +270,7 @@ specific scenarios</p>
 <div class="section level4">
 <h4 id="single-simulation">3.1.1 Single simulation<a class="anchor" aria-label="anchor" href="#single-simulation"></a>
 </h4>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mapping</span></span>
 <span><span class="va">simDataMapping</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TimeProfileDataMapping.html">TimeProfileDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="st">"time"</span>,</span>
@@ -283,7 +284,7 @@ specific scenarios</p>
 <span>  dataMapping <span class="op">=</span> <span class="va">simDataMapping</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-time-profile_files/figure-html/examples%20single%20simulation-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="../reference/plotTimeProfile.html">plotTimeProfile</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">simData2</span>,</span>
@@ -295,7 +296,7 @@ specific scenarios</p>
 <div class="section level4">
 <h4 id="single-simulation-with-confidence-interval">3.1.2. Single simulation with confidence interval<a class="anchor" aria-label="anchor" href="#single-simulation-with-confidence-interval"></a>
 </h4>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mapping</span></span>
 <span><span class="va">simDataMapping</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TimeProfileDataMapping.html">TimeProfileDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="st">"time"</span>,</span>
@@ -311,7 +312,7 @@ specific scenarios</p>
 <span>  dataMapping <span class="op">=</span> <span class="va">simDataMapping</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-time-profile_files/figure-html/examples%20single%20simulation%20with%20confidence%20interval-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="../reference/plotTimeProfile.html">plotTimeProfile</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">simData2</span>,</span>
@@ -323,7 +324,7 @@ specific scenarios</p>
 <div class="section level4">
 <h4 id="multiple-simulations">3.1.3. Multiple simulations<a class="anchor" aria-label="anchor" href="#multiple-simulations"></a>
 </h4>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mapping</span></span>
 <span><span class="co"># Not using a group here will plot both profiles</span></span>
 <span><span class="co"># but as they were the same data</span></span>
@@ -341,7 +342,7 @@ specific scenarios</p>
 <span>  dataMapping <span class="op">=</span> <span class="va">simDataMapping</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-time-profile_files/figure-html/examples%20multiple%20simulations%20no%20caption-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mapping</span></span>
 <span><span class="co"># Using a group to plot both profiles</span></span>
 <span></span>
@@ -364,7 +365,7 @@ specific scenarios</p>
 <div class="section level4">
 <h4 id="multiple-simulations-with-confidence-interval">3.1.4. Multiple simulations with confidence interval<a class="anchor" aria-label="anchor" href="#multiple-simulations-with-confidence-interval"></a>
 </h4>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mapping</span></span>
 <span><span class="co"># ymin and ymax define the CI</span></span>
 <span><span class="va">simDataMapping</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TimeProfileDataMapping.html">TimeProfileDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
@@ -392,7 +393,7 @@ specific scenarios</p>
 <div class="section level4">
 <h4 id="single-observed-data-set">3.2.1. Single observed data set<a class="anchor" aria-label="anchor" href="#single-observed-data-set"></a>
 </h4>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mapping</span></span>
 <span><span class="va">obsDataMapping</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/ObservedDataMapping.html">ObservedDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="st">"time"</span>,</span>
@@ -406,7 +407,7 @@ specific scenarios</p>
 <span>  observedDataMapping <span class="op">=</span> <span class="va">obsDataMapping</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-time-profile_files/figure-html/examples%20single%20observation-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="../reference/plotTimeProfile.html">plotTimeProfile</a></span><span class="op">(</span></span>
 <span>  observedData <span class="op">=</span> <span class="va">obsData2</span>,</span>
@@ -433,7 +434,7 @@ variables.</li>
 errorbars should be replaced by <code>y</code> beforehand in order to
 still see the <code>ymax</code> range of the errorbars.</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mapping</span></span>
 <span><span class="va">obsDataMapping1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/ObservedDataMapping.html">ObservedDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="st">"time"</span>,</span>
@@ -452,7 +453,7 @@ still see the <code>ymax</code> range of the errorbars.</li>
 <code>"minConcentration"</code> and <code>"minConcentration"</code>,
 they are input directly as <code>ymin</code> and <code>ymax</code> and
 will be taken as is by the <code>ObservedDataMapping</code> object.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mapping</span></span>
 <span><span class="va">obsDataMapping2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/ObservedDataMapping.html">ObservedDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="st">"time"</span>,</span>
@@ -472,7 +473,7 @@ will be taken as is by the <code>ObservedDataMapping</code> object.</p>
 <div class="section level4">
 <h4 id="multiple-observed-data-sets">3.2.3. Multiple observed data sets<a class="anchor" aria-label="anchor" href="#multiple-observed-data-sets"></a>
 </h4>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mapping</span></span>
 <span><span class="va">obsDataMapping</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/ObservedDataMapping.html">ObservedDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="st">"time"</span>,</span>
@@ -498,7 +499,7 @@ displaying errors. Before plotting, the data needs to be merged in a
 consistent way to let the dataMapping know which variable(s) to use.</p>
 <p>Below, <code>ymin</code> and <code>ymax</code> were consequently
 calculated for <code>obsData1</code> before merging.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Use common variable before usinf rbind.data.frame</span></span>
 <span><span class="va">obsData1</span><span class="op">$</span><span class="va">minConcentration</span> <span class="op">&lt;-</span> <span class="va">obsData1</span><span class="op">$</span><span class="va">concentration</span> <span class="op">-</span> <span class="va">obsData1</span><span class="op">$</span><span class="va">sd</span></span>
 <span><span class="va">obsData1</span><span class="op">$</span><span class="va">maxConcentration</span> <span class="op">&lt;-</span> <span class="va">obsData1</span><span class="op">$</span><span class="va">concentration</span> <span class="op">+</span> <span class="va">obsData1</span><span class="op">$</span><span class="va">sd</span></span>
@@ -529,7 +530,7 @@ calculated for <code>obsData1</code> before merging.</p>
 <p>The following code flags all values higher than <code>10</code> as
 <code>mdv</code>, leading to a plot without any observed data points
 higher than <code>10</code> (removing the first observation)</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Use common variable before usinf rbind.data.frame</span></span>
 <span><span class="va">mdvData</span> <span class="op">&lt;-</span> <span class="va">obsData1</span></span>
 <span><span class="va">mdvData</span><span class="op">$</span><span class="va">mdv</span> <span class="op">&lt;-</span> <span class="va">mdvData</span><span class="op">$</span><span class="va">concentration</span> <span class="op">&gt;</span> <span class="fl">10</span></span>
@@ -562,7 +563,7 @@ observed and simulated data can be plotted.</p>
 <div class="section level4">
 <h4 id="single-simulation-and-observed-data-set">3.3.1. Single simulation and observed data set<a class="anchor" aria-label="anchor" href="#single-simulation-and-observed-data-set"></a>
 </h4>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mappings</span></span>
 <span><span class="va">simDataMapping</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TimeProfileDataMapping.html">TimeProfileDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="st">"time"</span>,</span>
@@ -584,7 +585,7 @@ observed and simulated data can be plotted.</p>
 <span>  observedDataMapping <span class="op">=</span> <span class="va">obsDataMapping</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-time-profile_files/figure-html/combine%20simulated%20and%20observed-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="../reference/plotTimeProfile.html">plotTimeProfile</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">simData2</span>,</span>
@@ -599,7 +600,7 @@ observed and simulated data can be plotted.</p>
 <h4 id="single-simulation-and-observed-data-set-with-their-confidence-intervals">3.3.2. Single simulation and observed data set with their confidence
 intervals<a class="anchor" aria-label="anchor" href="#single-simulation-and-observed-data-set-with-their-confidence-intervals"></a>
 </h4>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mappings</span></span>
 <span><span class="va">simDataMapping</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TimeProfileDataMapping.html">TimeProfileDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="st">"time"</span>,</span>
@@ -625,7 +626,7 @@ intervals<a class="anchor" aria-label="anchor" href="#single-simulation-and-obse
 <span>  observedDataMapping <span class="op">=</span> <span class="va">obsDataMapping</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-time-profile_files/figure-html/combine%20simulated%20and%20observed%20with%20ci-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="../reference/plotTimeProfile.html">plotTimeProfile</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">simData2</span>,</span>
@@ -643,7 +644,7 @@ intervals<a class="anchor" aria-label="anchor" href="#single-simulation-and-obse
 simple. To differentiate between the simulations/data sets, a grouping
 variable corresponding to the legend caption needs to be defined as
 illustrated below.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mappings</span></span>
 <span><span class="va">simDataMapping</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TimeProfileDataMapping.html">TimeProfileDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="st">"time"</span>,</span>
@@ -677,7 +678,7 @@ Therefore, their color pattern may not match. To update the plot and
 have appropriate colors and labels in the legend, it is possible to get
 the legend properties and update them as illustrated in the example
 below that updates the positions of the legend entries:</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plotLegend</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getLegendCaption.html">getLegendCaption</a></span><span class="op">(</span><span class="va">simAndObsTimeProfile</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">plotLegend</span><span class="op">$</span><span class="va">color</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
@@ -709,13 +710,13 @@ below that updates the positions of the legend entries:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plotLegend</span><span class="op">$</span><span class="va">color</span> <span class="op">&lt;-</span> <span class="va">plotLegend</span><span class="op">$</span><span class="va">color</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="../reference/updateTimeProfileLegend.html">updateTimeProfileLegend</a></span><span class="op">(</span><span class="va">simAndObsTimeProfile</span>, <span class="va">plotLegend</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-time-profile_files/figure-html/update%20legend%20properties-1.png" width="100%" style="display: block; margin: auto;"></p>
 <p>Note that if observed and simulated data share common groupings, they
 will be merged in the final legend.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">commonSimData1</span> <span class="op">&lt;-</span> <span class="va">simData1</span></span>
 <span><span class="va">commonObsData1</span> <span class="op">&lt;-</span> <span class="va">obsData1</span></span>
 <span><span class="va">commonSimData1</span><span class="op">$</span><span class="va">caption</span> <span class="op">&lt;-</span> <span class="st">"Common data 1"</span></span>
@@ -738,7 +739,7 @@ will be merged in the final legend.</p>
 <h4 id="multiple-simulations-and-observed-data-sets-with-their-confidence-intervals">3.3.4. Multiple simulations and observed data sets with their
 confidence intervals<a class="anchor" aria-label="anchor" href="#multiple-simulations-and-observed-data-sets-with-their-confidence-intervals"></a>
 </h4>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define Data Mappings</span></span>
 <span><span class="va">simDataMapping</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TimeProfileDataMapping.html">TimeProfileDataMapping</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="st">"time"</span>,</span>
@@ -780,7 +781,7 @@ confidence intervals<a class="anchor" aria-label="anchor" href="#multiple-simula
 <p>The code below defines a smart plot configuration that uses
 <code>data</code>, <code>metaData</code>, and <code>dataMapping</code>
 to define the names of labels.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tpConfiguration</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TimeProfilePlotConfiguration.html">TimeProfilePlotConfiguration</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">simData1</span>,</span>
 <span>  metaData <span class="op">=</span> <span class="va">metaData</span>,</span>
@@ -792,7 +793,7 @@ defining the properties of its <code>lines</code>, <code>points</code>,
 <code>ribbons</code> and <code>errorbars</code>. By default, these
 properties are used from the current theme, but can be overridden as
 illustrated below.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define which lines are used for simulated data</span></span>
 <span><span class="va">tpConfiguration</span><span class="op">$</span><span class="va">lines</span><span class="op">$</span><span class="va">linetype</span> <span class="op">&lt;-</span> <span class="va">Linetypes</span><span class="op">$</span><span class="va">solid</span></span>
 <span><span class="va">tpConfiguration</span><span class="op">$</span><span class="va">lines</span><span class="op">$</span><span class="va">size</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
@@ -811,7 +812,7 @@ illustrated below.</p>
 <span><span class="va">tpConfiguration</span><span class="op">$</span><span class="va">errorbars</span><span class="op">$</span><span class="va">color</span> <span class="op">&lt;-</span> <span class="st">"black"</span></span>
 <span><span class="va">tpConfiguration</span><span class="op">$</span><span class="va">errorbars</span><span class="op">$</span><span class="va">size</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span></code></pre></div>
 <p>The corresponding plot is shown below:</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plotTimeProfile.html">plotTimeProfile</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind.data.frame</a></span><span class="op">(</span></span>
 <span>    <span class="va">simData1</span>,</span>

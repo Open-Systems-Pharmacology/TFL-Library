@@ -234,12 +234,13 @@ passed to the method <em>initializePlot</em> as shown below:</p>
 <span><span class="co">#&gt;     .points: ThemeAestheticSelections, ThemeAestheticMaps, R6</span></span>
 <span><span class="co">#&gt;     .ribbons: ThemeAestheticSelections, ThemeAestheticMaps, R6</span></span>
 <span><span class="co">#&gt;     .xAxis: XAxisConfiguration, AxisConfiguration, R6</span></span>
-<span><span class="co">#&gt;     .yAxis: YAxisConfiguration, AxisConfiguration, R6</span></span>
-<span></span>
+<span><span class="co">#&gt;     .yAxis: YAxisConfiguration, AxisConfiguration, R6</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="va">emptyPlot</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/empty-plot-1.png" width="100%" style="display: block; margin: auto;"></p>
 <p>Figure: empty plot with default PlotConfiguration properties</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Creates an empty plot with title and watermark as user-defined properties</span></span>
 <span><span class="va">myEmptyPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/initializePlot.html">initializePlot</a></span><span class="op">(</span><span class="va">myConfiguration</span><span class="op">)</span></span>
 <span></span>
@@ -271,8 +272,9 @@ passed to the method <em>initializePlot</em> as shown below:</p>
 <span><span class="co">#&gt;     .points: ThemeAestheticSelections, ThemeAestheticMaps, R6</span></span>
 <span><span class="co">#&gt;     .ribbons: ThemeAestheticSelections, ThemeAestheticMaps, R6</span></span>
 <span><span class="co">#&gt;     .xAxis: XAxisConfiguration, AxisConfiguration, R6</span></span>
-<span><span class="co">#&gt;     .yAxis: YAxisConfiguration, AxisConfiguration, R6</span></span>
-<span></span>
+<span><span class="co">#&gt;     .yAxis: YAxisConfiguration, AxisConfiguration, R6</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="va">myEmptyPlot</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/my-empty-plot-1.png" width="100%" style="display: block; margin: auto;"></p>
 <p>Figure: empty plot with title and watermark as user-defined
@@ -296,7 +298,7 @@ of the following plot captions:</p>
 </ul>
 <p>Each field is a <em>Label</em> object that associate a text with font
 properties:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">title</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Label.html">Label</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  text <span class="op">=</span> <span class="st">"This is a title text"</span>,</span>
 <span>  font <span class="op">=</span> <span class="va"><a href="../reference/Font.html">Font</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
@@ -338,12 +340,12 @@ properties:</p>
 <em>character</em> objects can be passed on.</p>
 <p><em>Character</em> objects will be converted into <em>Label</em>
 objects internally using the current theme.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">myRedPlotLabel</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/LabelConfiguration.html">LabelConfiguration</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>title <span class="op">=</span> <span class="va"><a href="../reference/Label.html">Label</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  text <span class="op">=</span> <span class="st">"my title"</span>,</span>
 <span>  color <span class="op">=</span> <span class="st">"red"</span></span>
 <span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Property</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"text"</span>, <span class="st">"font$color"</span>, <span class="st">"font$size"</span>, <span class="st">"font$angle"</span>, <span class="st">"font$align"</span>, <span class="st">"font$fontFace"</span>, <span class="st">"font$fontFamily"</span><span class="op">)</span></span>
 <span><span class="va">displayNullValue</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">value</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
@@ -427,7 +429,7 @@ objects internally using the current theme.</p>
 <h3 id="label-configuration-in-plots">2.2. Label configuration in plots<a class="anchor" aria-label="anchor" href="#label-configuration-in-plots"></a>
 </h3>
 <p>The effect of label configuration in plots is straightforward:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plotConfigurationLabel1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/PlotConfiguration.html">PlotConfiguration</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  title <span class="op">=</span> <span class="st">"Title"</span>,</span>
 <span>  subtitle <span class="op">=</span> <span class="st">"Subtitle"</span>,</span>
@@ -442,7 +444,7 @@ objects internally using the current theme.</p>
 <p><img src="plot-configuration_files/figure-html/label-in-plot-configuration-1-1.png" width="100%" style="display: block; margin: auto;"></p>
 <p>Figure: Empty plot with labels defined as <code>character</code>
 using default label properties</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plotConfigurationLabel2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/PlotConfiguration.html">PlotConfiguration</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  title <span class="op">=</span> <span class="va"><a href="../reference/Label.html">Label</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>text <span class="op">=</span> <span class="st">"Title"</span>, size <span class="op">=</span> <span class="fl">12</span>, color <span class="op">=</span> <span class="st">"deepskyblue4"</span><span class="op">)</span>,</span>
 <span>  subtitle <span class="op">=</span> <span class="va"><a href="../reference/Label.html">Label</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>text <span class="op">=</span> <span class="st">"Subtitle"</span>, size <span class="op">=</span> <span class="fl">11</span>, color <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span>,</span>
@@ -468,10 +470,10 @@ update.</p>
 <p>Similar to the construction of the Label configuration,
 <em>Label</em> and/or <em>character</em> objects can be passed on.</p>
 <p>Using the previous example, <em>pLab2</em>,</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setPlotLabels.html">setPlotLabels</a></span><span class="op">(</span><span class="va">pLab2</span>, title <span class="op">=</span> <span class="st">"new title"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/set-new-title-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setPlotLabels.html">setPlotLabels</a></span><span class="op">(</span><span class="va">pLab2</span>, title <span class="op">=</span> <span class="va"><a href="../reference/Label.html">Label</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>text <span class="op">=</span> <span class="st">"new title"</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/set-new-redtitle-1.png" width="100%" style="display: block; margin: auto;"></p>
 </div>
@@ -495,7 +497,7 @@ named “x” and “y” as <code>x</code> and <code>y</code>.</p>
 <em>pSmart3</em> will use the information from <em>metaData</em> to
 write the x and y labels. <em>pSmart4</em> will overwrite the y label
 and title based on the input.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">0.1</span><span class="op">)</span></span>
 <span><span class="va">myData</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="va">time</span>,</span>
@@ -555,7 +557,7 @@ properties.</p>
 <p>As for <em>scatter3</em> and <em>scatter4</em>, they will use the
 plotConfiguration defined by <em>smartConfig4</em> and lead to the exact
 same plot.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">scatter1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/addScatter.html">addScatter</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">myData</span><span class="op">)</span></span>
 <span><span class="va">scatter2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/addScatter.html">addScatter</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">myData</span>,</span>
@@ -603,7 +605,7 @@ objects, which define the properties of the background element.</p>
 values are defined from the current <code>Theme</code>, however this
 default can be overwritten.</p>
 <p>For instance:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">background</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/BackgroundConfiguration.html">BackgroundConfiguration</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
@@ -660,7 +662,7 @@ default can be overwritten.</p>
 </h3>
 <p>The effect of background configuration in plots is also quite
 straightforward:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plotConfigurationBackground1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/PlotConfiguration.html">PlotConfiguration</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>watermark <span class="op">=</span> <span class="st">"My Watermark"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">pBack1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/initializePlot.html">initializePlot</a></span><span class="op">(</span><span class="va">plotConfigurationBackground1</span><span class="op">)</span></span>
@@ -697,10 +699,10 @@ configuration using the following <code>tlf</code> methods:</p>
 and <em>setBackgroundPlotArea</em> require the plot object and which
 properties to update.</p>
 <p>Using the previous example, <em>scatter1</em>,</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setBackground.html">setBackground</a></span><span class="op">(</span><span class="va">scatter1</span>, fill <span class="op">=</span> <span class="st">"lemonchiffon"</span>, color <span class="op">=</span> <span class="st">"darkgreen"</span>, linetype <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/set-plot-background-1-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setBackgroundPanelArea.html">setBackgroundPanelArea</a></span><span class="op">(</span><span class="va">scatter1</span>, fill <span class="op">=</span> <span class="st">"lemonchiffon"</span>, color <span class="op">=</span> <span class="st">"darkgreen"</span>, linetype <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/set-panel-background-1-1.png" width="100%" style="display: block; margin: auto;"></p>
 </div>
@@ -711,13 +713,13 @@ properties to update.</p>
 <em>setYGrid</em> are very similar and require the plot object and the
 grid properties to be updated.</p>
 <p>Using the previous example <em>scatter1</em>:</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setGrid.html">setGrid</a></span><span class="op">(</span><span class="va">scatter1</span>, linetype <span class="op">=</span> <span class="st">"blank"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/set-plot-grid-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setXGrid.html">setXGrid</a></span><span class="op">(</span><span class="va">scatter1</span>, linetype <span class="op">=</span> <span class="st">"blank"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/set-plot-y-grid-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setYGrid.html">setYGrid</a></span><span class="op">(</span><span class="va">scatter1</span>, linetype <span class="op">=</span> <span class="st">"blank"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/set-plot-x-grid-1.png" width="100%" style="display: block; margin: auto;"></p>
 </div>
@@ -736,10 +738,10 @@ be.</li>
 degrees.</li>
 </ul>
 <p>Using the previous example <em>scatter1</em>:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setWatermark.html">setWatermark</a></span><span class="op">(</span><span class="va">scatter1</span>, watermark <span class="op">=</span> <span class="st">"Hello watermark !!"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/set-watermark-1-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setWatermark.html">setWatermark</a></span><span class="op">(</span><span class="va">scatter1</span>, watermark <span class="op">=</span> <span class="st">"Confidential"</span>, angle <span class="op">=</span> <span class="fl">45</span>, size <span class="op">=</span> <span class="fl">6</span>, color <span class="op">=</span> <span class="st">"firebrick"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/set-watermark-2-1.png" width="100%" style="display: block; margin: auto;"></p>
 </div>
@@ -774,12 +776,13 @@ limits to R.</p>
 <p>When initializing a <em>XAxisConfiguration</em>,
 <em>YAxisConfiguration</em>, or <em>PlotConfiguration</em> objects, the
 axis properties can be passed on.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">myAxisConfiguration</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/XAxisConfiguration.html">XAxisConfiguration</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">myAxisConfiguration</span><span class="op">$</span><span class="va">scale</span></span>
-<span><span class="co">#&gt; [1] "identity"</span></span>
-<span><span class="va">myAxisConfiguration</span><span class="op">$</span><span class="va">ticklabels</span></span>
+<span><span class="co">#&gt; [1] "identity"</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">myAxisConfiguration</span><span class="op">$</span><span class="va">ticklabels</span></span>
 <span><span class="co">#&gt; list()</span></span>
 <span><span class="co">#&gt; attr(,"class")</span></span>
 <span><span class="co">#&gt; [1] "waiver"</span></span></code></pre></div>
@@ -793,10 +796,10 @@ axis properties can be passed on.</p>
 <p>The methods <em>setXAxis</em> and <em>setYAxis</em> require the plot
 object, and the axis properties to update. Using the previous example,
 <em>scatter1</em>:</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setXAxis.html">setXAxis</a></span><span class="op">(</span><span class="va">scatter1</span>, axisLimits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">20</span><span class="op">)</span>, scale <span class="op">=</span> <span class="va">Scaling</span><span class="op">$</span><span class="va">sqrt</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/set-x-axis-1.png" width="100%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setXAxis.html">setXAxis</a></span><span class="op">(</span><span class="va">scatter1</span>,</span>
 <span>  axisLimits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">6</span> <span class="op">*</span> <span class="va">pi</span><span class="op">)</span>,</span>
 <span>  ticks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">6</span> <span class="op">*</span> <span class="va">pi</span>, <span class="va">pi</span><span class="op">)</span>,</span>
@@ -827,7 +830,7 @@ corresponding the legend position. Available legend positions are
 “outsideRight”, “outsideTopRight”</em> and can be accessed using the
 enum <em>LegendPositions</em>. The property <em>caption</em> is a
 data.frame defining the caption properties of the legend.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">myLegend</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/LegendConfiguration.html">LegendConfiguration</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>position <span class="op">=</span> <span class="va">LegendPositions</span><span class="op">$</span><span class="va">insideTopRight</span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="legend-configuration-in-plots">5.1. Legend configuration in plots<a class="anchor" aria-label="anchor" href="#legend-configuration-in-plots"></a>
@@ -837,7 +840,7 @@ data.frame defining the caption properties of the legend.</p>
 requires the plot object, and the position as defined by the elements of
 the enum <em>LegendPositions</em> Using the previous example,
 <em>scatter1</em>:</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/setLegendPosition.html">setLegendPosition</a></span><span class="op">(</span><span class="va">scatter1</span>, <span class="va">LegendPositions</span><span class="op">$</span><span class="va">insideTopLeft</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plot-configuration_files/figure-html/legend-position-1.png" width="100%" style="display: block; margin: auto;"></p>
 </div>
@@ -857,7 +860,7 @@ and save them as json files. With this app, it becomes quite easy to
 create one’s own theme with a few clicks. To call for the shiny app,
 users only needed to run the function <code><a href="../reference/runThemeMaker.html">runThemeMaker()</a></code>.</p>
 <p>Additionally, a few predefined themes are available :</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"themes"</span>, package <span class="op">=</span> <span class="st">"tlf"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "dark-theme.json"     "excel-theme.json"    "hc-theme.json"      </span></span>
 <span><span class="co">#&gt; [4] "matlab-theme.json"   "minimal-theme.json"  "template-theme.json"</span></span></code></pre></div>
@@ -878,7 +881,7 @@ dimensions to save, big legends can shrink the size of the panel. To
 prevent such shrinkage, plot dimensions can be updated before using
 <code>exportPlot</code> with the function
 <code>updateExportDimensionsForLegend</code> as illustrated below.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">scatterLegend</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/setLegendPosition.html">setLegendPosition</a></span><span class="op">(</span><span class="va">scatter1</span>, <span class="va">LegendPositions</span><span class="op">$</span><span class="va">outsideTop</span><span class="op">)</span></span>
 <span><span class="co"># Print properties of plot export</span></span>
 <span><span class="va">scatterLegend</span><span class="op">$</span><span class="va">plotConfiguration</span><span class="op">$</span><span class="va">export</span></span>
@@ -886,7 +889,7 @@ prevent such shrinkage, plot dimensions can be updated before using
 <span><span class="co">#&gt; Width: 16 cm</span></span>
 <span><span class="co">#&gt; Height: 9 cm</span></span>
 <span><span class="co">#&gt; Resolution: 300 dots per inch</span></span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">updatedScatterLegend</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/updateExportDimensionsForLegend.html">updateExportDimensionsForLegend</a></span><span class="op">(</span><span class="va">scatterLegend</span><span class="op">)</span></span>
 <span><span class="co"># Print properties of plot export</span></span>
 <span><span class="va">updatedScatterLegend</span><span class="op">$</span><span class="va">plotConfiguration</span><span class="op">$</span><span class="va">export</span></span>
@@ -901,7 +904,7 @@ prevent such shrinkage, plot dimensions can be updated before using
 <code>exportPlotConfigurationCode(plotConfiguration, name)</code>
 creates character strings corresponding to commented R code that allows
 you to re-create a PlotConfiguration object.</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create and export a plot confiugration</span></span>
 <span><span class="va">plotConfigurationToExport1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/PlotConfiguration.html">PlotConfiguration</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/exportPlotConfigurationCode.html">exportPlotConfigurationCode</a></span><span class="op">(</span><span class="va">plotConfigurationToExport1</span><span class="op">)</span></span>
@@ -1030,8 +1033,9 @@ you to re-create a PlotConfiguration object.</p>
 <span><span class="co">#&gt; [123] "plotConfiguration$export$height &lt;- 9"                                </span></span>
 <span><span class="co">#&gt; [124] "plotConfiguration$export$units &lt;- \"cm\""                            </span></span>
 <span><span class="co">#&gt; [125] "plotConfiguration$export$dpi &lt;- 300"                                 </span></span>
-<span><span class="co">#&gt; [126] "\n"</span></span>
-<span></span>
+<span><span class="co">#&gt; [126] "\n"</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="co"># Create, update and export a more advanced plot confiugration</span></span>
 <span><span class="va">plotConfigurationToExport2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TornadoPlotConfiguration.html">TornadoPlotConfiguration</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>bar <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/exportPlotConfigurationCode.html">exportPlotConfigurationCode</a></span><span class="op">(</span><span class="va">plotConfigurationToExport2</span>, name <span class="op">=</span> <span class="st">"tornado"</span><span class="op">)</span></span>
@@ -1170,7 +1174,7 @@ strings, they can either be saved as a .R script or copied/pasted to be
 used as is or within a function. It is also possible to turn the strings
 into and expression to <code>eval</code> using
 <code>parse(text = exportPlotConfigurationCode(plotConfiguration))</code>.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/eval.html" class="external-link">eval</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/parse.html" class="external-link">parse</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="../reference/exportPlotConfigurationCode.html">exportPlotConfigurationCode</a></span><span class="op">(</span><span class="va">plotConfigurationToExport2</span>, name <span class="op">=</span> <span class="st">"tornado"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">tornado</span></span>
 <span><span class="co">#&gt; &lt;TornadoPlotConfiguration&gt;</span></span>
