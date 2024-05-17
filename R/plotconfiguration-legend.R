@@ -67,11 +67,22 @@ LegendConfiguration <- R6::R6Class(
       # Update legend position and alignment
       legendPosition <- .createPlotLegendPosition(private$.position)
 
-      plotObject <- plotObject + ggplot2::theme(
-        legend.position = c(legendPosition$xPosition, legendPosition$yPosition),
-        legend.justification = c(legendPosition$xJustification, legendPosition$yJustification),
-        legend.direction = "vertical"
-      )
+
+      if (is.numeric(c(legendPosition$xPosition, legendPosition$yPosition))) {
+        plotObject <- plotObject + ggplot2::theme(
+          legend.position = "inside",
+          legend.position.inside = c(legendPosition$xPosition, legendPosition$yPosition),
+          legend.justification = c(legendPosition$xJustification, legendPosition$yJustification),
+          legend.direction = "vertical"
+        )
+      } else if (is.character(c(legendPosition$xPosition, legendPosition$yPosition))) {
+        plotObject <- plotObject + ggplot2::theme(
+          legend.position = c(legendPosition$xPosition, legendPosition$yPosition),
+          legend.justification = c(legendPosition$xJustification, legendPosition$yJustification),
+          legend.direction = "vertical"
+        )
+      }
+
       # TO DO: update caption properties before returning plot
       return(plotObject)
     }

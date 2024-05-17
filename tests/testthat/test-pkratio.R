@@ -1,5 +1,5 @@
 # Load data of comprehensive examples
-load("pkRatioDataExample.RData")
+load(testthat::test_path("pkRatioDataExample.RData"))
 
 test_that("plotPKRatio() function works properly", {
   pkrp <- plotPKRatio(data = data.frame(
@@ -7,7 +7,7 @@ test_that("plotPKRatio() function works properly", {
     y = c(1, 3, 4, 0.5, 0.2)
   ))
 
-  expect_is(pkrp, "ggplot")
+  expect_s3_class(pkrp, "ggplot")
 
   expect_error(plotPKRatio(), 'argument "data" is missing, with no default')
   expect_error(
@@ -36,11 +36,11 @@ test_that("PK Ratio default settings work", {
     pkRatio3 = c(2, 1 / 2)
   ))
 
-  expect_is(pkRatioConfig$labels$title, "Label")
-  expect_is(pkRatioConfig$labels$subtitle, "Label")
-  expect_is(pkRatioConfig$labels$xlabel, "Label")
-  expect_is(pkRatioConfig$labels$ylabel, "Label")
-  expect_is(pkRatioConfig$background$watermark, "Label")
+  expect_s3_class(pkRatioConfig$labels$title, "Label")
+  expect_s3_class(pkRatioConfig$labels$subtitle, "Label")
+  expect_s3_class(pkRatioConfig$labels$xlabel, "Label")
+  expect_s3_class(pkRatioConfig$labels$ylabel, "Label")
+  expect_s3_class(pkRatioConfig$background$watermark, "Label")
 
   expect_null(pkRatioConfig$labels$title$text)
   expect_null(pkRatioConfig$labels$subtitle$text)
@@ -68,5 +68,5 @@ test_that("PK Ratio typical test works", {
     dataMapping = pkRatioMap
   )
 
-  expect_known_output(pkrp, "expectedPKRatioPlot.RData")
+  vdiffr::expect_doppelganger(title = "PKRatioPlot", fig = pkrp)
 })

@@ -13,13 +13,13 @@ eval(createDataMapping)
 
 # createPlot expression is "plot<PlotName>(data=testData, dataMapping=<plotname>DataMapping)"
 createPlot <- paste0("plot", plotNames, "(data=testData, dataMapping = ", tolower(plotNames), "DataMapping)")
-ggplotExpression <- parse(text = paste0("expect_is(", createPlot, ', "ggplot")'))
+ggplotExpression <- parse(text = paste0("expect_s3_class(", createPlot, ', "ggplot")'))
 warningExpression <- parse(text = paste0("expect_silent(", createPlot, ")"))
 
 
 test_that("Plot is produced as a ggplot object", {
-  expect_is(addScatter(data = testData), "ggplot")
-  expect_is(addLine(data = testData), "ggplot")
+  expect_s3_class(addScatter(data = testData), "ggplot")
+  expect_s3_class(addLine(data = testData), "ggplot")
   eval(ggplotExpression)
 })
 

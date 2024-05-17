@@ -81,7 +81,7 @@ plotCumulativeTimeProfile <- function(data = NULL,
       color = .data[[mapLabels$color]]
     ),
     alpha = aestheticValues$alpha,
-    size = aestheticValues$size,
+    linewidth = aestheticValues$size,
     linetype = aestheticValues$linetype,
     # Cumulative componenent
     position = ggplot2::position_stack(),

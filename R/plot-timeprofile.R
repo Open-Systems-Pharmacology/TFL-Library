@@ -190,7 +190,7 @@ plotTimeProfile <- function(data = NULL,
           color = .data[[mapLabels$color]],
           linetype = .data[[mapLabels$linetype]]
         ),
-        size = aestheticValues$size,
+        linewidth = aestheticValues$size,
         alpha = aestheticValues$alpha,
         na.rm = TRUE,
         show.legend = TRUE,

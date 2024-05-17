@@ -173,9 +173,9 @@ addScatter <- function(data = NULL,
         x = .data[[mapLabels$x]],
         y = .data[[mapLabels$y]],
         linetype = .data$legendLabels,
-        color = .data$legendLabels,
-        size = .data$legendLabels
+        color = .data$legendLabels
       ),
+      linewidth = .getAestheticValues(n = 1, selectionKey = plotConfiguration$lines$size, aesthetic = "size"),
       alpha = .getAestheticValues(n = 1, selectionKey = plotConfiguration$points$alpha, aesthetic = "alpha"),
       show.legend = TRUE,
       na.rm = TRUE
@@ -312,8 +312,8 @@ addLine <- function(data = NULL,
           yintercept = .data[[mapLabels$y]],
           linetype = .data$legendLabels,
           color = .data$legendLabels,
-          size = .data$legendLabels
         ),
+        linewidth = .getAestheticValues(n = 1, selectionKey = plotConfiguration$lines$size, aesthetic = "size"),
         alpha = .getAestheticValues(n = 1, selectionKey = plotConfiguration$lines$alpha, aesthetic = "alpha"),
         show.legend = TRUE
       ) +
@@ -336,9 +336,9 @@ addLine <- function(data = NULL,
         mapping = ggplot2::aes(
           xintercept = .data[[mapLabels$x]],
           linetype = .data$legendLabels,
-          color = .data$legendLabels,
-          size = .data$legendLabels
+          color = .data$legendLabels
         ),
+        linewidth = .getAestheticValues(n = 1, selectionKey = plotConfiguration$lines$size, aesthetic = "size"),
         alpha = .getAestheticValues(n = 1, selectionKey = plotConfiguration$lines$alpha, aesthetic = "alpha"),
         show.legend = TRUE
       ) +
@@ -378,8 +378,8 @@ addLine <- function(data = NULL,
           y = .data[[mapLabels$y]],
           linetype = .data$legendLabels,
           color = .data$legendLabels,
-          size = .data$legendLabels
         ),
+        linewidth = .getAestheticValues(n = 1, selectionKey = plotConfiguration$lines$size, aesthetic = "size"),
         alpha = .getAestheticValues(n = 1, selectionKey = plotConfiguration$lines$alpha, aesthetic = "alpha"),
         show.legend = TRUE,
         na.rm = TRUE
@@ -662,7 +662,7 @@ addErrorbar <- function(data = NULL,
         color = .data[[mapLabels$color]],
         group = .data[[mapLabels$color]]
       ),
-      size = .getAestheticValues(n = 1, selectionKey = plotConfiguration$errorbars$size, position = 0, aesthetic = "size"),
+      linewidth = .getAestheticValues(n = 1, selectionKey = plotConfiguration$errorbars$size, position = 0, aesthetic = "size"),
       linetype = .getAestheticValues(n = 1, selectionKey = plotConfiguration$errorbars$linetype, aesthetic = "linetype"),
       alpha = .getAestheticValues(n = 1, selectionKey = plotConfiguration$errorbars$alpha, aesthetic = "alpha"),
       color = .getAestheticValues(n = 1, selectionKey = plotConfiguration$errorbars$color, aesthetic = "color"),

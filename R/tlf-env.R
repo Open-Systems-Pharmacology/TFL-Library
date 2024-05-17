@@ -66,7 +66,7 @@ tlfEnv$defaultAggregation <- list(
 tlfEnv$logTicks <- 10^seq(-10, 10)
 tlfEnv$lnTicks <- exp(seq(-10, 10))
 tlfEnv$logMinorTicks <- rep(seq(1, 9), 21) * rep(10^seq(-10, 10), each = 9)
-tlfEnv$defaultErrorbarCapSize <- 0
+tlfEnv$defaultErrorbarCapSize <- 2
 tlfEnv$defaultLLOQLinetype <- "dotted"
 tlfEnv$DefaultAlphaRatio <- 0.618
 tlfEnv$maxCharacterWidth <- 50
