@@ -36,11 +36,11 @@ test_that("PK Ratio default settings work", {
     pkRatio3 = c(2, 1 / 2)
   ))
 
-  expect_is(pkRatioConfig$labels$title, "Label")
-  expect_is(pkRatioConfig$labels$subtitle, "Label")
-  expect_is(pkRatioConfig$labels$xlabel, "Label")
-  expect_is(pkRatioConfig$labels$ylabel, "Label")
-  expect_is(pkRatioConfig$background$watermark, "Label")
+  expect_s3_class(pkRatioConfig$labels$title, "Label")
+  expect_s3_class(pkRatioConfig$labels$subtitle, "Label")
+  expect_s3_class(pkRatioConfig$labels$xlabel, "Label")
+  expect_s3_class(pkRatioConfig$labels$ylabel, "Label")
+  expect_s3_class(pkRatioConfig$background$watermark, "Label")
 
   expect_null(pkRatioConfig$labels$title$text)
   expect_null(pkRatioConfig$labels$subtitle$text)

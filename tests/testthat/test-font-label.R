@@ -1,26 +1,26 @@
 test_that("asLabel gives always a Label class object", {
   x <- asLabel("a")
-  expect_is(x, "Label")
-  expect_is(asLabel(x), "Label")
+  expect_s3_class(x, "Label")
+  expect_s3_class(asLabel(x), "Label")
 })
 
 test_that("Font default works", {
   defaultFont <- Font$new()
 
-  expect_is(defaultFont, "Font")
-  expect_is(defaultFont$size, "numeric")
-  expect_is(defaultFont$angle, "numeric")
-  expect_is(defaultFont$color, "character")
-  expect_is(defaultFont$fontFace, "character")
-  expect_is(defaultFont$fontFamily, "character")
+  expect_s3_class(defaultFont, "Font")
+  expect_type(defaultFont$size, "double")
+  expect_type(defaultFont$angle, "double")
+  expect_type(defaultFont$color, "character")
+  expect_type(defaultFont$fontFace, "character")
+  expect_type(defaultFont$fontFamily, "character")
 })
 
 test_that("Label default works", {
   defaultLabel <- Label$new()
 
-  expect_is(defaultLabel, "Label")
-  expect_is(defaultLabel$text, "character")
-  expect_is(defaultLabel$font, "Font")
+  expect_s3_class(defaultLabel, "Label")
+  expect_type(defaultLabel$text, "character")
+  expect_s3_class(defaultLabel$font, "Font")
 })
 
 test_that("Label gives error when initialized with wrong arguments", {
@@ -74,6 +74,7 @@ test_that("Long texts are properly handled in labels", {
   )
 
   expect_warning(
+    expect_warning(
     initializePlot(plotConfiguration = PlotConfiguration$new(
       title = paste("Title: This is a", paste(rep("very", 40), collapse = " "), "long title"),
       subtitle = paste("Subtitle: This is a", paste(rep("very", 40), collapse = " "), "long subtitle"),
@@ -82,6 +83,7 @@ test_that("Long texts are properly handled in labels", {
       caption = paste("Caption: This is a", paste(rep("very", 40), collapse = " "), "long caption"),
       watermark = Label$new(text = "watermark", angle = 45)
     ))
+  )
   )
 })
 

@@ -2,7 +2,7 @@ data <- data.frame("Ratio" = c(seq(0.1, 5, 0.1), NA), "OtherRatio" = c(seq(0.2, 
 testMapping <- PKRatioDataMapping$new(y = "OtherRatio")
 
 test_that("outputs a data.frame", {
-  expect_is(getPKRatioMeasure(data), "data.frame")
+  expect_s3_class(getPKRatioMeasure(data), "data.frame")
 })
 
 test_that("default works", {

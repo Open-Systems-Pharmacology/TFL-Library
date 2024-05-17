@@ -13,10 +13,10 @@ B <- data.frame(
 
 test_that("Checks of type 'is' work properly", {
   # Output is logical
-  expect_is(isSameLength(A, A), "logical")
-  expect_is(isOfLength(A, 3), "logical")
-  expect_is(isOfType(A, "data.frame"), "logical")
-  expect_is(isIncluded("col3", names(A)), "logical")
+  expect_type(isSameLength(A, A), "logical")
+  expect_type(isOfLength(A, 3), "logical")
+  expect_type(isOfType(A, "data.frame"), "logical")
+  expect_type(isIncluded("col3", names(A)), "logical")
 
   # Output is TRUE
   expect_true(isSameLength(A, A))
