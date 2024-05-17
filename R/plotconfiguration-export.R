@@ -97,7 +97,8 @@ ExportConfiguration <- R6::R6Class(
             width = self$width,
             height = self$height,
             units = self$units,
-            dpi = self$dpi
+            dpi = self$dpi,
+            create.dir = TRUE
           )
         },
         error = function(e) {

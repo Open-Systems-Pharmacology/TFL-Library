@@ -102,10 +102,11 @@ test_that("Plot exports are correctly rendered", {
     )
   )
 
+  tempFile <- tempfile(fileext = ".png")
 
   exportConfiguration <- ExportConfiguration$new(
     format = "png",
-    path = tempfile(),
+    path = tempFile,
     name = "test-export-obs-vs-pred",
     dpi = 300
   )
