@@ -184,7 +184,7 @@ plotHistogram <- function(data = NULL,
           color = .data$legendLabels,
           linetype = .data$legendLabels
         ),
-        size = aestheticValues$size,
+        linewidth = aestheticValues$size,
         alpha = aestheticValues$alpha
       )
   }

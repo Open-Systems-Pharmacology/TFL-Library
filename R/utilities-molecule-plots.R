@@ -85,7 +85,7 @@
             color = .data[[mapLabels$color]],
             group = .data[[mapLabels$shape]]
           ),
-          size = aestheticValues$size,
+          linewidth = aestheticValues$size,
           linetype = aestheticValues$linetype,
           alpha = aestheticValues$alpha,
           na.rm = TRUE,
@@ -102,7 +102,7 @@
             color = .data[[mapLabels$color]],
             group = .data[[mapLabels$shape]]
           ),
-          size = aestheticValues$size,
+          linewidth = aestheticValues$size,
           linetype = aestheticValues$linetype,
           alpha = aestheticValues$alpha,
           na.rm = TRUE,
@@ -163,7 +163,7 @@
             color = .data[[mapLabels$color]],
             group = .data[[mapLabels$shape]]
           ),
-          size = aestheticValues$size,
+          linewidth = aestheticValues$size,
           linetype = aestheticValues$linetype,
           alpha = aestheticValues$alpha,
           na.rm = TRUE,
@@ -180,7 +180,7 @@
             color = .data[[mapLabels$color]],
             group = .data[[mapLabels$shape]]
           ),
-          size = aestheticValues$size,
+          linewidth = aestheticValues$size,
           linetype = aestheticValues$linetype,
           alpha = aestheticValues$alpha,
           na.rm = TRUE,
@@ -259,14 +259,14 @@
       color = aestheticValues$color,
       linetype = aestheticValues$linetype,
       alpha = aestheticValues$alpha,
-      size = aestheticValues$size
+      linewidth = aestheticValues$size
     ),
     "vertical" = ggplot2::geom_vline(
       xintercept = value,
       color = aestheticValues$color,
       linetype = aestheticValues$linetype,
       alpha = aestheticValues$alpha,
-      size = aestheticValues$size
+      linewidth = aestheticValues$size
     ),
     "diagonal" = ggplot2::geom_abline(
       slope = 1,
@@ -274,7 +274,7 @@
       linetype = aestheticValues$linetype,
       color = aestheticValues$color,
       alpha = aestheticValues$alpha,
-      size = aestheticValues$size
+      linewidth = aestheticValues$size
     ),
     "obsvspredDiagonal" = ggplot2::geom_abline(
       data = data.frame(
@@ -289,7 +289,7 @@
       ),
       color = aestheticValues$color,
       alpha = aestheticValues$alpha,
-      size = aestheticValues$size,
+      linewidth = aestheticValues$size,
       key_glyph = plotObject$plotConfiguration$foldLineslegendType
     ),
     "ddiHorizontal" = ggplot2::geom_abline(
@@ -298,7 +298,7 @@
       color = aestheticValues$color,
       linetype = aestheticValues$linetype,
       alpha = aestheticValues$alpha,
-      size = aestheticValues$size
+      linewidth = aestheticValues$size
     )
   )
   return(plotObject)
@@ -396,7 +396,7 @@ getDualAxisPlot <- function(leftPlotObject, rightPlotObject) {
         color = .data[[mapLabels$color]]
       ),
       linetype = tlfEnv$defaultLLOQLinetype,
-      size = aestheticValues$size,
+      linewidth = aestheticValues$size,
       alpha = aestheticValues$alpha,
       na.rm = TRUE,
       show.legend = FALSE
@@ -408,7 +408,7 @@ getDualAxisPlot <- function(leftPlotObject, rightPlotObject) {
         color = .data[[mapLabels$color]]
       ),
       linetype = tlfEnv$defaultLLOQLinetype,
-      size = aestheticValues$size,
+      linewidth = aestheticValues$size,
       alpha = aestheticValues$alpha,
       na.rm = TRUE,
       show.legend = FALSE

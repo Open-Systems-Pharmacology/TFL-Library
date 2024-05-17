@@ -99,7 +99,7 @@ plotTornado <- function(data = NULL,
         color = .data[[mapLabels$color]]
       ),
       alpha = aestheticValues$alpha,
-      size = aestheticValues$size,
+      linewidth = aestheticValues$size,
       linetype = aestheticValues$linetype,
       position = ggplot2::position_dodge(width = plotConfiguration$dodge),
       na.rm = TRUE
