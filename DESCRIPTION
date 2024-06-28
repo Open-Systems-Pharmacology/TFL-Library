@@ -36,7 +36,7 @@ Imports:
     ospsuite.utils (>= 1.4.0),
     patchwork,
     ggtext,
-    stringr,
+    stringr (>= 1.5.0),
     rlang,
     lifecycle
 Depends: 
