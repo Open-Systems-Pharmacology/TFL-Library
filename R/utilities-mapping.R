@@ -143,8 +143,8 @@ getDefaultCaptions <- function(data, metaData = NULL, variableList = colnames(da
   # Wrap names and factor levels
   # If group name is longer than tlfEnv$maxCharacterWidth, 
   # line breaks will be added accounting for user-defined line breaks
-  labels <- paste(.stringWrap(labels), sep = "\n")
-  captionLevels <- paste(.stringWrap(captionLevels), sep = "\n")
+  labels <- paste(.stringWrap(labels), sep = "<br>")
+  captionLevels <- paste(.stringWrap(captionLevels), sep = "<br>")
   captionSubset <- factor(
     getLabelWithUnit(labels, unit = unit),
     levels = getLabelWithUnit(captionLevels, unit = unit)
