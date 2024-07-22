@@ -161,7 +161,7 @@ getDefaultCaptions <- function(data, metaData = NULL, variableList = colnames(da
 #' @keywords internal
 .stringWrap <- function(label, width = tlfEnv$maxCharacterWidth) {
   # Split internally each element of label
-  splitLabel <- lapply(label, function(x){stringr::str_split_1(x, "<br>|\n")})
+  splitLabel <- lapply(label, function(x){stringr::str_split_1(as.character(x), "<br>|\n")})
   wrappedLabel <- lapply(
     splitLabel, 
     function(x){
