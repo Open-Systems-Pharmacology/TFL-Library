@@ -1,5 +1,5 @@
 pandoc: 3.1.11
-pkgdown: 2.0.9
+pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   atom-plots: atom-plots.html
@@ -11,8 +11,7 @@ articles:
   plot-time-profile: plot-time-profile.html
   theme-maker: theme-maker.html
   tlf: tlf.html
-last_built: 2024-06-28T08:47Z
+last_built: 2024-07-22T14:57Z
 urls:
   reference: https://www.open-systems-pharmacology.org/TLF-Library/reference
   article: https://www.open-systems-pharmacology.org/TLF-Library/articles
-
