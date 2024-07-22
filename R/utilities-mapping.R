@@ -140,32 +140,37 @@ getDefaultCaptions <- function(data, metaData = NULL, variableList = colnames(da
   } else {
     captionLevels <- sort(unique(labels))
   }
-
-  # If group name is longer than charactersWidth, then it will be wrapped on
-  # several lines of tlfEnv$maxCharacterWidth length and cut on non-word character.
-  ## Wrap names
-  labels <- paste(
-    stringr::str_wrap(labels,
-      width = tlfEnv$maxCharacterWidth,
-      whitespace_only = FALSE
-    ),
-    sep = "\n"
-  )
-  ## Wrap factor levels
-  captionLevels <- paste(
-    stringr::str_wrap(captionLevels,
-      width = tlfEnv$maxCharacterWidth,
-      whitespace_only = FALSE
-    ),
-    sep = "\n"
-  )
-
+  # Wrap names and factor levels
+  # If group name is longer than tlfEnv$maxCharacterWidth, 
+  # line breaks will be added accounting for user-defined line breaks
+  labels <- paste(.stringWrap(labels), sep = "\n")
+  captionLevels <- paste(.stringWrap(captionLevels), sep = "\n")
   captionSubset <- factor(
     getLabelWithUnit(labels, unit = unit),
     levels = getLabelWithUnit(captionLevels, unit = unit)
   )
 
   return(captionSubset)
+}
+
+#' @title .stringWrap
+#' @param label A character to be wrapped
+#' @param width An integer width for line break split algorithm
+#' @description
+#' Wrap character string by applying line breaks when appropriate
+#' @keywords internal
+.stringWrap <- function(label, width = tlfEnv$maxCharacterWidth) {
+  # Split internally each element of label
+  splitLabel <- lapply(label, function(x){stringr::str_split_1(x, "<br>|\n")})
+  wrappedLabel <- lapply(
+    splitLabel, 
+    function(x){
+      stringr::str_c(
+        stringr::str_wrap(x, width = width, whitespace_only = FALSE), 
+        collapse = "<br>"
+        )
+    })
+  return(as.character(wrappedLabel))
 }
 
 #' @title .getAesStringMapping
