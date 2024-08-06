@@ -167,7 +167,7 @@ getDefaultCaptions <- function(data, metaData = NULL, variableList = colnames(da
     function(x){
       stringr::str_c(
         stringr::str_wrap(x, width = width, whitespace_only = FALSE), 
-        collapse = "<br>"
+        collapse = "\n"
         )
     })
   return(as.character(wrappedLabel))
