@@ -103,7 +103,7 @@ plotDDIRatio <- function(data,
       color = aestheticValues$color,
       linetype = aestheticValues$linetype,
       alpha = aestheticValues$alpha,
-      size = aestheticValues$size
+      linewidth = aestheticValues$size
     ) +
     ggplot2::geom_path(
       data = guestData,
@@ -112,7 +112,7 @@ plotDDIRatio <- function(data,
       color = aestheticValues$color,
       linetype = aestheticValues$linetype,
       alpha = aestheticValues$alpha,
-      size = aestheticValues$size
+      linewidth = aestheticValues$size
     )
 
   # 2- Error bars

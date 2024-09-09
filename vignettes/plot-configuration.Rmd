@@ -162,6 +162,10 @@ labelProperties <- cbind.data.frame(
 knitr::kable(labelProperties)
 ```
 
+> [!CAUTION]
+> Label elements leverage `ggtext::element_textbox_simple()` and use markdown/html formatting.
+> As a consequence, their line breaks need to be defined using the html tag `<br>`.
+
 ## 2.2. Label configuration in plots
 
 The effect of label configuration in plots is straightforward:

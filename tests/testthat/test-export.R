@@ -1,14 +1,11 @@
-context("Export plots")
-
 test_that("Check that plot configuration uses default values when undefined", {
   testPlotConfiguration <- PlotConfiguration$new()
-
-  expect_equal(testPlotConfiguration$export$format, tlf:::tlfEnv$defaultExportParameters$format)
-  expect_equal(testPlotConfiguration$export$name, tlf:::tlfEnv$defaultExportParameters$name)
-  expect_equal(testPlotConfiguration$export$width, tlf:::tlfEnv$defaultExportParameters$width)
-  expect_equal(testPlotConfiguration$export$height, tlf:::tlfEnv$defaultExportParameters$height)
-  expect_equal(testPlotConfiguration$export$units, tlf:::tlfEnv$defaultExportParameters$units)
-  expect_equal(testPlotConfiguration$export$dpi, tlf:::tlfEnv$defaultExportParameters$dpi)
+  expect_equal(testPlotConfiguration$export$format, getTLFSettings("defaultExportParameters")$Value$format)
+  expect_equal(testPlotConfiguration$export$name, getTLFSettings("defaultExportParameters")$Value$name)
+  expect_equal(testPlotConfiguration$export$width, getTLFSettings("defaultExportParameters")$Value$width)
+  expect_equal(testPlotConfiguration$export$height, getTLFSettings("defaultExportParameters")$Value$height)
+  expect_equal(testPlotConfiguration$export$units, getTLFSettings("defaultExportParameters")$Value$units)
+  expect_equal(testPlotConfiguration$export$dpi, getTLFSettings("defaultExportParameters")$Value$dpi)
 })
 
 
@@ -89,4 +86,32 @@ test_that("Exporting plot configuration code leads to new plot configration with
 
   expect_equal(class(plotConfigurationToExport), class(exportedPlotConfiguration))
   expect_equal(plotConfigurationToExport, exportedPlotConfiguration)
+})
+
+
+test_that("Plot exports are correctly rendered", {
+  skip_on_ci() # skiped on CI because png() device cannot be initialized
+
+  plot <- addScatter(
+    x = c(1, 2, 3), y = c(1, 2, 3),
+    plotConfiguration = PlotConfiguration$new(
+      title = "This is a title",
+      subtitle = "This is a subtitle",
+      xlabel = "This is the x label",
+      ylabel = "This is the y label",
+    )
+  )
+
+  tempFile <- tempfile(fileext = ".png")
+
+  exportConfiguration <- ExportConfiguration$new(
+    format = "png",
+    path = tempFile,
+    name = "test-export-obs-vs-pred",
+    dpi = 300
+  )
+
+  exportConfiguration$savePlot(plot)
+
+  expect_snapshot_file(paste0(file.path(exportConfiguration$path, exportConfiguration$name), ".png"), "test-export-obs-vs-pred.png")
 })

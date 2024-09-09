@@ -1,10 +1,13 @@
 set.seed(42)
 
+x <- sort(abs(rnorm(20, 2.5, 1)))
 obsVsPredData <- data.frame(
-  x = sort(abs(rnorm(20, 2.5, 1))),
+  x = x,
   y = sort(abs(rnorm(20, 2.5, 1))),
   group = c(rep("A", 10), rep("B", 10)),
-  lloq = 1
+  lloq = 1,
+  xmin = x - abs(rnorm(20, 0.1, 0.03)),
+  xmax = x + abs(rnorm(20, 0.1, 0.05))
 )
 
 
@@ -23,6 +26,46 @@ test_that("plotObservedVsSimulated works ", {
     )
   )
 })
+
+
+test_that("plotObservedVsSimulated works with error bars", {
+  skip_if_not_installed("vdiffr")
+  skip_if(getRversion() < "4.1")
+  vdiffr::expect_doppelganger(
+    title = "basic with error bars",
+    fig = plotObsVsPred(
+        data = obsVsPredData,
+        dataMapping = ObsVsPredDataMapping$new(x = "x", y = "y", xmin = "xmin", xmax = "xmax")
+      )
+  )
+})
+
+
+test_that("plotObservedVsSimulated works with data point with and without error bars", {
+  skip_if_not_installed("vdiffr")
+  skip_if(getRversion() < "4.1")
+
+  x <- sort(abs(rnorm(20, 2.5, 1)))
+
+  obsVsPredData <- data.frame(
+    x = x,
+    y = sort(abs(rnorm(20, 2.5, 1))),
+    group = c(rep("A", 10), rep("B", 10)),
+    lloq = 1,
+    xmin = c(x[1], x[2:20] - abs(rnorm(19, 0.1, 0.03))),
+    xmax = c(x[1], x[2:20] + abs(rnorm(19, 0.1, 0.05)))
+  )
+  vdiffr::expect_doppelganger(
+    title = "basic with and without error bars",
+    fig =
+      plotObsVsPred(
+        data = obsVsPredData,
+        dataMapping = ObsVsPredDataMapping$new(x = "x", y = "y", xmin = "xmin", xmax = "xmax"),
+      )
+  )
+})
+
+
 
 test_that("foldDistance are plotted correctly", {
   skip_if_not_installed("vdiffr")
@@ -175,22 +218,20 @@ test_that("Long group names are correctly displayed", {
   obsVsPredData <- data.frame(
     x = sort(abs(rnorm(20, 2.5, 1))),
     y = sort(abs(rnorm(20, 2.5, 1))),
-    group = c(rep("A: ThisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath", 10),
-              rep("B: ThisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath", 10))
+    group = c(
+      rep("A: ThisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath|thisIsAVeryLongPath", 10),
+      rep("B: ThisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath|thisIsAnotherVeryLongPath", 10)
+    )
   )
 
   vdiffr::expect_doppelganger("Very long group names",
-                              fig =
-                                plotObsVsPred(
-                                  data = obsVsPredData,
-                                  dataMapping = ObsVsPredDataMapping$new(
-                                    x = "x", y = "y",
-                                    group = "group"
-                                  )
-                                )
+    fig =
+      plotObsVsPred(
+        data = obsVsPredData,
+        dataMapping = ObsVsPredDataMapping$new(
+          x = "x", y = "y",
+          group = "group"
+        )
+      )
   )
-
 })
-
-
-

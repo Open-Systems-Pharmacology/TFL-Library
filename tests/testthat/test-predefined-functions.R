@@ -1,7 +1,5 @@
-context("tlfStatFunctions: Predefined functions for aggregation methods")
-
 test_that("tlfStatFunctions is enum", {
-  expect_is(tlfStatFunctions, "list")
+  expect_type(tlfStatFunctions, "list")
 
   listNames <- names(tlfStatFunctions)
   listValues <- as.character(sapply(tlfStatFunctions, identity))
@@ -10,7 +8,11 @@ test_that("tlfStatFunctions is enum", {
 
 test_that("All predefined functions exist", {
   for (tlfFunction in tlfStatFunctions) {
-    expect_is(match.fun(tlfFunction), "function")
+    if (tlfFunction %in% c("min", "max")) {
+      expect_type(match.fun(tlfFunction), c("builtin"))
+    } else {
+      expect_type(match.fun(tlfFunction), c("closure"))
+    }
   }
 })
 

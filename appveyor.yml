@@ -44,7 +44,7 @@ pull_requests:
   do_not_increment_build_number: true
 
 before_test:
-  - cinst pandoc
+  - choco install pandoc
   - ps: $env:Path += ";C:\Program Files (x86)\Pandoc\"
   - pandoc -v
 

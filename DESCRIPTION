@@ -36,13 +36,13 @@ Imports:
     ospsuite.utils (>= 1.4.0),
     patchwork,
     ggtext,
-    stringr,
+    stringr (>= 1.5.0),
     rlang,
     lifecycle
 Depends: 
     R (>= 3.6)
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 Suggests:
     cowplot,
@@ -122,5 +122,7 @@ Collate:
     'utilities-mapping.R'
     'utilities-molecule-plots.R'
     'utilities-theme.R'
+    'utilities-tlf.R'
     'utils.R'
     'zzz.R'
+Config/testthat/edition: 3
