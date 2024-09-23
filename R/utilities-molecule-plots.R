@@ -357,7 +357,7 @@ getDualAxisPlot <- function(leftPlotObject, rightPlotObject) {
 
   # Fixes issue #522, define null device 
   # allowing cowplot to handle font database
-  cowplot::set_null_device(plotConfiguration$export$format)
+  cowplot::set_null_device(leftPlotObject$plotConfiguration$export$format)
   alignedPlots <- cowplot::align_plots(
     leftPlotObject,
     rightPlotObject,
