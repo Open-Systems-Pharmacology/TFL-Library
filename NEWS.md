@@ -1,4 +1,4 @@
-# tlf (development version)
+# tlf 1.6.0
 
 - Lower Limit Of Quantification (LLOQ) can be added on time-profile plots and obs-vs-pred plots.
 - The `xLimits` and `yLimits` argument in `PlotConfiguration` are renamed `xAxisLimits` and `yAxisLimits`.

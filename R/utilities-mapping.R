@@ -141,7 +141,7 @@ getDefaultCaptions <- function(data, metaData = NULL, variableList = colnames(da
     captionLevels <- sort(unique(labels))
   }
   # Wrap names and factor levels
-  # If group name is longer than tlfEnv$maxCharacterWidth, 
+  # If group name is longer than tlfEnv$maxCharacterWidth,
   # line breaks will be added accounting for user-defined line breaks
   labels <- paste(.stringWrap(labels), sep = "<br>")
   captionLevels <- paste(.stringWrap(captionLevels), sep = "<br>")
@@ -161,15 +161,18 @@ getDefaultCaptions <- function(data, metaData = NULL, variableList = colnames(da
 #' @keywords internal
 .stringWrap <- function(label, width = tlfEnv$maxCharacterWidth) {
   # Split internally each element of label
-  splitLabel <- lapply(label, function(x){stringr::str_split_1(as.character(x), "<br>|\n")})
+  splitLabel <- lapply(label, function(x) {
+    stringr::str_split_1(as.character(x), "<br>|\n")
+  })
   wrappedLabel <- lapply(
-    splitLabel, 
-    function(x){
+    splitLabel,
+    function(x) {
       stringr::str_c(
-        stringr::str_wrap(x, width = width, whitespace_only = FALSE), 
+        stringr::str_wrap(x, width = width, whitespace_only = FALSE),
         collapse = "\n"
-        )
-    })
+      )
+    }
+  )
   return(as.character(wrappedLabel))
 }
 
