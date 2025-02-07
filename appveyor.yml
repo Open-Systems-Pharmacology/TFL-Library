@@ -47,7 +47,7 @@ before_test:
   - choco install pandoc
   - ps: $env:Path += ";C:\Program Files (x86)\Pandoc\"
   - pandoc -v
-’
+
 build_script:
   - travis-tool.sh install_deps
   - travis-tool.sh r_binary_install curl
