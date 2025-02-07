@@ -355,7 +355,7 @@ getDualAxisPlot <- function(leftPlotObject, rightPlotObject) {
   rightPlotObject <- setY2Axis(rightPlotObject)
   leftPlotObject <- setYAxis(leftPlotObject)
 
-  # Fixes issue #522, define null device 
+  # Fixes issue #522, define null device
   # allowing cowplot to handle font database
   cowplot::set_null_device(leftPlotObject$plotConfiguration$export$format)
   alignedPlots <- cowplot::align_plots(

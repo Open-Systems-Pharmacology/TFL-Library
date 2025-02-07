@@ -34,9 +34,9 @@ test_that("plotObservedVsSimulated works with error bars", {
   vdiffr::expect_doppelganger(
     title = "basic with error bars",
     fig = plotObsVsPred(
-        data = obsVsPredData,
-        dataMapping = ObsVsPredDataMapping$new(x = "x", y = "y", xmin = "xmin", xmax = "xmax")
-      )
+      data = obsVsPredData,
+      dataMapping = ObsVsPredDataMapping$new(x = "x", y = "y", xmin = "xmin", xmax = "xmax")
+    )
   )
 })
 
